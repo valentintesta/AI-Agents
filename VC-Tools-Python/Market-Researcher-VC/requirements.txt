@@ -1,0 +1,10 @@
+colorama==0.4.6
+exa-py==1.8.8
+google-genai==1.2.0
+groq==0.18.0
+openai==1.63.2
+pydantic==2.10.6
+pydantic_core==2.27.2
+pyfiglet==1.0.2
+python-dotenv==1.0.1
+requests==2.32.3
