@@ -1,88 +1,57 @@
-# 📊 Stock Analysis Toolkit – Crew AI
+# 📊 Warren Buffett-Style Value Investing App
 
-This project is a modular and extensible toolkit for analyzing individual stocks using a combination of **fundamental metrics**, **technical indicators**, and **risk analytics**. It pulls data from **Yahoo Finance via `yfinance`**, processes it using **Pandas** and **NumPy**, and optionally serves insights through a **Streamlit dashboard**. The toolkit is designed for integration with **LLM agents via `CrewAI` and `ChatGroq`**, enabling automated reasoning and reporting.
-
----
-
-## 🧩 1. Data Collection
-
-- **Real-Time and Historical Data**  
-  Stock data is fetched using `yfinance`, including daily historical prices, financial statements, and key company info.
-  
-- **News Scraper**  
-  Retrieves relevant stock news headlines from `yfinance.Ticker.news`.
+This application provides AI-assisted valuation reports for publicly traded companies, modeled after **Warren Buffett’s value investing philosophy**.  
+It combines **financial APIs**, **large language models (via Groq)**, and **CrewAI agents** to deliver structured executive memos on intrinsic value using both **Owner Earnings** and **Discounted Cash Flow (DCF)** methods.
 
 ---
 
-## 📈 2. Fundamental Analysis
+## 🚀 Features
 
-- **Valuation Metrics**
-  - Price-to-Earnings Ratio (PE)
-  - Forward PE
-  - Price-to-Book (PB)
-  - Enterprise Value-to-EBITDA (EV/EBITDA)
+- 🔍 **Stock Evaluation**  
+  Input a stock ticker and fetch historical financials.
 
-- **Profitability**
-  - EPS (ttm)
-  - Return on Equity (ROE)
-  - Net Margin
-  - Gross Margin
-  - Free Cash Flow
+- 🤖 **AI Financial Agents**
+  - **Owner Earnings Valuator**: Estimates intrinsic value using Buffett’s preferred method.
+  - **DCF Valuator**: Projects future cash flows to derive a valuation.
+  - **Executive Summary Editor**: Crafts a polished investment memo in Buffett’s tone.
 
-- **Growth**
-  - Revenue and earnings growth trends
-  - Year-over-year comparisons
+- 📂 **Document-Aware Memos**  
+  Aligns tone and structure with past reports stored locally.
+
+- 🧠 **Multiple LLMs**  
+  Uses powerful Groq-hosted models to ensure performance and style control.
 
 ---
 
-## 📉 3. Risk Analysis
+## 🧠 How It Works
 
-- **Volatility**  
-  Standard deviation of log returns.
+### 🔄 Data Fetching
+- Financial data is retrieved using the `FinancialDatasetsAPIWrapper`.
 
-- **Value at Risk (VaR)**  
-  Uses historical simulation to estimate the potential daily loss at a given confidence level.
+### 🧑‍💼 Agent Roles
+- Each agent is fine-tuned for a specific financial task and communication style.
+- Agents are powered by adapted tools including:
+  - File reading
+  - Directory scanning
+  - Web search
 
-- **Sharpe & Sortino Ratios**  
-  Evaluate risk-adjusted return with/without penalizing upside volatility.
-
-- **Beta Calculation**  
-  Estimates the stock’s sensitivity to market movement.
-
-- **Max Drawdown**  
-  Measures the largest historical peak-to-trough drop.
-
----
-
-## 📊 4. Technical Indicators
-
-- **Moving Averages**  
-  Simple and exponential MAs to assess trends.
-
-- **Momentum**
-  - RSI (Relative Strength Index)
-  - MACD (Moving Average Convergence Divergence)
-
-- **Trend Detection**  
-  Classifies trend as bullish, bearish, or neutral using moving average crossovers.
+### 👥 Crew Execution
+- Tasks are assigned per agent:
+  - Owner earnings valuation
+  - DCF analysis
+  - Executive memo synthesis
+- Output is a final structured investment memo designed for executive audiences.
 
 ---
 
-## 🧠 5. LLM & Agent Integration
+## 💡 Inspired By
 
-- **ChatGroq + LLaMA 3 (70B)**  
-  The code integrates with Groq-hosted LLaMA 3 for fast, context-aware analysis using `ChatGroq`.
-
-- **CrewAI-Ready**  
-  Designed to be used with multi-agent frameworks like CrewAI. Each function can serve as a tool for reasoning agents in financial report generation, portfolio evaluation, or conversational workflows.
+- **Warren Buffett's principles** on value investing  
+- **CrewAI** for agent/task coordination  
+- **Groq** for lightning-fast LLM inference  
+- **FinancialDatasets API** for real-time data  
 
 ---
 
-## 🛠️ 6. Utilities & Structure
+> 📌 *This app aims to blend the best of Buffett-style value investing with the speed and reasoning of AI agents.*
 
-- Modular functions for:
-  - Trend classification
-  - Ratio formatting
-  - Data preprocessing
-
-- Easily extendable with new indicators or output formats (e.g., PDF reporting, chatbot UI).
