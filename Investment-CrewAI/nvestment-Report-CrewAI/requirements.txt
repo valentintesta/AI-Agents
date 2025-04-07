@@ -1,7 +1,0 @@
-phidata
-duckduckgo-search
-streamlit
-groq
-openai
-yfinance
-python-dotenv
